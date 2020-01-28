@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Movie from './components/movie';
-
+import Search from './components/Search';
 class App extends Component {
 
   constructor(){
@@ -53,8 +53,8 @@ render(){
     <div className="App">
       <header className="App-header">
         <div>
-          <input type="text" value={this.state.rezultat} onChange={this.handleChange}/>
-          <button type="button" onClick={this.submitHandler}>Search</button>
+          <Search />
+          
         </div>
         {this.state.rezultat}
         <Movie 
