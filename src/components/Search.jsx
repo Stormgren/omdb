@@ -1,11 +1,19 @@
 import React,{Component} from 'react'; 
-
+import {Route, Link} from 'react-router-dom';
+import Movie from './movie';
 class Search extends Component{
     constructor(){
         super()
         this.state = {
             query: '',
-            result: []
+            link: '',
+            result: [],
+            title: '',
+            movie: {
+                title: '',
+                year: '',
+                genre: ''
+            }
         }
     }
 
@@ -28,23 +36,43 @@ class Search extends Component{
 
     rende = (response) => (
        this.setState({
-           result: response.Search
+           result: response.Search,
+           
        })
     )
-
+    
     submitHandler = () =>{
         this.movieList(this.state.query)
     }
-    
+
+    selectedMovie = (id) => {
+        this.setState({
+            movie : {
+                title : id.Title,
+                year: id.Year,
+                genre: id.Genre
+            }
+        })
+    }
     render(){
         return(
-            <>
+            <div>
             <input type="text" onChange={this.changeHandler}/>
             <button onClick={this.submitHandler}>Search</button>
-            
-        {this.state.result.map(res => <p key={res.imdbID}>{res.Title}</p>)}
-            
-            </>
+        
+        {this.state.result.map(res => 
+        <h3 key={res.imdbID}>
+             <Link to={`/${res.imdbID}`}>{res.Title}</Link>
+            </h3>)}
+
+         <Route path='/:id' component={Movie} />
+         
+        
+        
+        
+        
+        
+            </div>
         )
     }
 }
