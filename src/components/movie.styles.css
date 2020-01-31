@@ -1,0 +1,12 @@
+body {
+    background: #212529;
+    color: white;
+}
+.row-content{
+    margin-top: 1rem;
+    padding: 1rem 0;
+}
+
+.img-content {
+    border: 1px solid white;
+}

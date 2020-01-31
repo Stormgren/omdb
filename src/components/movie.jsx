@@ -1,4 +1,7 @@
 import React,{Component} from 'react';
+import Search from './Search/Search';
+import {Row, Col, Container, Image} from 'react-bootstrap';
+import './movie.styles.css';
 
 class Movie extends Component {
       constructor(props){
@@ -20,12 +23,12 @@ componentDidMount(){
    let id = this.state.imbd.id
     
     fetch(`http://www.omdbapi.com/?apikey=${KEY}&i=${id}&plot=full`)
-    .then(res => (res.json())).then(this.rende)
+    .then(res => (res.json())).then(this.resultRender)
 
 
     }
 
-    rende = (response) => (
+    resultRender = (response) => (
        this.setState({
            title: response.Title,
            img: response.Poster,
@@ -37,12 +40,22 @@ componentDidMount(){
     
 render(){
         return (
-        <div>
-              <h1>  {this.state.title}</h1>
+                <>
+          
+        <Container> 
+        <Row className="row-content" bg="dark">
+      
+        <Col sm={4} md={4}>
+        <Image src={this.state.img} alt={this.state.Title} className="img-content" fluid/>
+        </Col>
+        <Col  sm={8} md={8} className="text-content">
+        <h1>{this.state.title}</h1>
         <p>{this.state.genre}, {this.state.year}</p>
-                <img src={this.state.img} alt={this.state.Title}/>
         <p>{this.state.plot}</p>
-        </div>
+        </Col>
+        </Row>
+        </Container>
+        </>
 )}
         }
         
