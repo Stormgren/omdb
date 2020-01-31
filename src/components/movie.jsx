@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import Search from './Search/Search';
 import {Row, Col, Container, Image} from 'react-bootstrap';
 import './movie.styles.css';
 
@@ -41,7 +40,7 @@ componentDidMount(){
 render(){
         return (
                 <>
-          
+      
         <Container> 
         <Row className="row-content" bg="dark">
       
