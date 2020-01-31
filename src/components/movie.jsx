@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import {Row, Col, Container, Image} from 'react-bootstrap';
+import {Row, Col, Container, Image, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import './movie.styles.css';
 
 class Movie extends Component {
@@ -51,6 +52,9 @@ render(){
         <h1>{this.state.title}</h1>
         <p>{this.state.genre}, {this.state.year}</p>
         <p>{this.state.plot}</p>
+        <Button variant="dark">
+                <Link to='/' className="btn-text">Back to Search</Link>
+        </Button>
         </Col>
         </Row>
         </Container>

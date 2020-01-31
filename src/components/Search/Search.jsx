@@ -51,7 +51,7 @@ class Search extends Component{
             <div>
                 <Navbar bg="dark" className="justify-content-center"> 
                     <Form inline>
-            <FormControl type="text" size="sm" onChange={this.changeHandler} placeholder="Enter movie or show name"/>
+            <FormControl type="text" size="sm" onChange={this.changeHandler} className="mr-sm-2" placeholder="Insert movie, show name"/>
             <Button variant="secondary" size="sm" onClick={this.submitHandler}>Search</Button>
         </Form>
         </Navbar>
@@ -62,11 +62,11 @@ class Search extends Component{
         <Col sm={4} key={res.imdbID}>
         <Card className="card-size">
             <Card.Img variant="top" src={res.Poster} className="card-img" alt="Poster"/>
-            <Card.Body>
+            <Card.Body className="card-body">
         <Card.Title>{res.Title}</Card.Title>
-        <Button variant="dark">
+        <Button variant="secondary">
             
-             <Link to={`/${res.imdbID}`}>View More</Link>
+             <Link to={`/${res.imdbID}`} className="btn-text">Show More</Link>
              </Button>
              </Card.Body>
             </Card>

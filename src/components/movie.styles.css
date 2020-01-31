@@ -9,3 +9,11 @@
 .img-content {
     border: 1px solid white;
 }
+
+.btn-text{
+    color: white;
+}
+
+.btn-text:hover{
+    color: white;
+}

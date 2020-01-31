@@ -6,6 +6,21 @@
 
 .card-img{
     height: 18rem;
+    border-radius: 0;
+}
+
+.card-body{
+    background: #212529;
+    color: white;
+}
+
+.btn-text{
+    color: white;
+
+}
+
+.btn-text:hover{
+    color: white;
 }
 
 @media(max-width: 575px){
