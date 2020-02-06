@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Movie from './components/movie';
+import Movie from './components/Movie/Movie';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import './App.css';
+
 import Search from './components/Search/Search';
 
 class App extends Component {
