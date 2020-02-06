@@ -1,0 +1,19 @@
+
+.row-content{
+    margin-top: 1rem;
+    padding: 1rem 0;
+    background: #212529;
+    color: white;
+}
+
+.img-content {
+    border: 1px solid white;
+}
+
+.btn-text{
+    color: white;
+}
+
+.btn-text:hover{
+    color: white;
+}
