@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import LoadingSpinner from '../../pages/LoadingSpinner/LoadingSpinner';
 import NotFound from "../NotFound";
 import {
   Navbar,
@@ -21,8 +22,15 @@ class Search extends Component {
       query: "",
       link: "",
       result: [],
-      title: ""
+      title: "",
+      loaded: true
     };
+  }
+
+  componentDidMount(){
+    this.setState({
+      loader: false
+    })
   }
 
   changeHandler = e => {
@@ -34,7 +42,7 @@ class Search extends Component {
   movieList = async query => {
     const KEY = "9caa56dd";
     query = this.state.query;
-
+    
     let result = await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${KEY}`)
       .then(res => res.json())
       .then(this.resultRender);
@@ -68,34 +76,39 @@ class Search extends Component {
             </Button>
           </Form>
         </Navbar>
-        <Container>
-          <Row>
-            {this.state.result ? (
-              this.state.result.map(res => (
-                <Col sm={4} key={res.imdbID}>
-                  <Card className="card-size">
-                    <Card.Img
-                      variant="top"
-                      src={res.Poster}
-                      className="card-img"
-                      alt="Poster"
-                    />
-                    <Card.Body className="card-body">
-                      <Card.Title>{res.Title}</Card.Title>
-                      <Button variant="secondary">
-                        <Link to={`/${res.imdbID}`} className="btn-text">
-                          Show More
-                        </Link>
-                      </Button>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))
-            ) : (
-              <NotFound />
-            )}
-          </Row>
-        </Container>
+        {this.state.loader ? (
+          <LoadingSpinner/>
+        ): (
+ <Container>
+ <Row>
+   {this.state.result ? (
+     this.state.result.map(res => (
+       <Col sm={4} key={res.imdbID}>
+         <Card className="card-size">
+           <Card.Img
+             variant="top"
+             src={res.Poster}
+             className="card-img"
+             alt={res.Title + " Poster"}
+           />
+           <Card.Body className="card-body">
+             <Card.Title>{res.Title}</Card.Title>
+             <Button variant="secondary">
+               <Link to={`/${res.imdbID}`} className="btn-text">
+                 Show More
+               </Link>
+             </Button>
+           </Card.Body>
+         </Card>
+       </Col>
+     ))
+   ) : (
+     <NotFound />
+   )}
+ </Row>
+</Container>
+        )}
+       
       </div>
     );
   }

@@ -2,8 +2,19 @@
     margin-top: 1rem;
     height: 26rem;
     max-width: 18rem;
-}
 
+    -webkit-animation: fade-in 1.5s; 
+    -moz-animation: fade-in 1.5s; 
+    animation: fade-in 1.5s;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0
+    } 
+    100%{
+        opacity: 1
+    }
+} 
 .card-img{
     height: 18rem;
     border-radius: 0;
