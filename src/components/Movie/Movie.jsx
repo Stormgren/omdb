@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Row, Navbar, Col, Container, Image, Button } from "react-bootstrap";
+import LoadingSpinner from '../../pages/LoadingSpinner/LoadingSpinner';
 import { Link } from "react-router-dom";
 import "./Movie.styles.css";
 
@@ -23,14 +24,21 @@ class Movie extends Component {
       production: "",
       metascore: "",
       imdbrating: "",
-      imbd: this.props.match.params
+      imbd: this.props.match.params,
+      loader: true
     };
 
     console.log(this.state.imbd.id);
   }
 
   componentDidMount() {
+    
     this.movieDetails();
+    // this.setState({loader: false})
+
+    setTimeout(() => { 
+      this.setState({loader: false})
+    },2000)
   }
 
   resultRender = response =>
@@ -69,14 +77,17 @@ class Movie extends Component {
   render() {
     return (
       <>
-        <Navbar bg="dark">
+       <Navbar bg="dark">
           <Button variant="secondary">
             <Link to="/" className="btn-text">
               Search More
             </Link>
           </Button>
         </Navbar>
-        <Container>
+      {this.state.loader ? (
+       <LoadingSpinner/>
+      ) : (
+        <Container className="content">
           <Row className="row-content" bg="dark">
             <Col sm={4} md={4}>
               <Image
@@ -105,8 +116,10 @@ class Movie extends Component {
               <p> Actors: {this.state.actors}</p>
               <p>{this.state.plot}</p>
             </Col>
-          </Row>
+       </Row>
         </Container>
+     
+      )}
       </>
     );
   }
