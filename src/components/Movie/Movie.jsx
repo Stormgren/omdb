@@ -78,7 +78,7 @@ class Movie extends Component {
     return (
       <>
        <Navbar bg="dark">
-          <Button variant="secondary">
+          <Button variant="info">
             <Link to="/" className="btn-text">
               Search More
             </Link>
