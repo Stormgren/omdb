@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import LoadingSpinner from '../../pages/LoadingSpinner/LoadingSpinner';
-import NotFound from "../NotFound";
+import NotFound from "../../pages/NotFound/NotFound";
 import {
   Navbar,
   Form,
@@ -110,7 +110,7 @@ class Search extends Component {
    
      ))
    ) : (
-     <NotFound className="fade-in-animation" />
+     <NotFound />
    )}
  </Row> 
 </Container>
