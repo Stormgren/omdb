@@ -77,7 +77,7 @@ class Movie extends Component {
   render() {
     return (
       <>
-       <Navbar bg="dark">
+       <Navbar bg="dark" sticky="top">
           <Button variant="info">
             <Link to="/" className="btn-text">
               Search More
@@ -89,15 +89,16 @@ class Movie extends Component {
       ) : (
         <Container className="content">
           <Row className="row-content" bg="dark">
-            <Col sm={4} md={4}>
+            <Col sm={12} md={4}>
               <Image
                 src={this.state.img}
                 alt={this.state.Title}
-                className="img-content"
-                fluid
+                className="img-content mx-auto d-block"
+                thumbnail
+                
               />
             </Col>
-            <Col sm={8} md={8} className="text-content">
+            <Col md={8} className="text-content">
               <h1>{this.state.title}</h1>
               <p>
                 {this.state.genre}, {this.state.year} Runtime:{" "}

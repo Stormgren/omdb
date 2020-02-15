@@ -5,10 +5,11 @@
     background: #212529;
     color: white;
 }
-
+/* 
 .img-content {
+    width: 300px;
     border: 1px solid white;
-}
+} */
 
 .btn-text{
     color: white;
@@ -32,3 +33,9 @@
         opacity: 1
     }
 } 
+
+ @media(max-width: 767px){
+    
+
+
+}

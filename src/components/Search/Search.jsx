@@ -10,8 +10,7 @@ import {
   Row,
   Card,
   Col,
-  Container,
-  Spinner
+  Container
 } from "react-bootstrap";
 
 import "./Search.styles.css";
@@ -61,8 +60,8 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="dark" className="justify-content-center">
-          <Form inline>
+        <Navbar bg="dark" className="justify-content-center" sticky="top">
+          <Form inline className="sm-resize">
             <FormControl
               type="text"
               size="sm"
@@ -70,7 +69,7 @@ class Search extends Component {
               className="mr-sm-2"
               placeholder="Movie or show name"
             />
-            <Button variant="secondary" size="sm" onClick={this.submitHandler}>
+            <Button className="sm-resize btn-spacing" variant="secondary" size="sm" onClick={this.submitHandler}>
               Search
             </Button>
           </Form>
