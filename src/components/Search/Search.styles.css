@@ -1,7 +1,6 @@
-
 .card-size{
     margin-top: 1rem;
-
+    max-width: 24rem;
 }
 
 .card-img{
@@ -9,6 +8,12 @@
     border-radius: 0;
 }
 
+.card-text{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
 .card-body{
     background: #212529;
     color: white;

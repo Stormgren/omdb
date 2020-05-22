@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { LinkContainer } from 'react-router-bootstrap';
 import LoadingSpinner from '../../pages/LoadingSpinner/LoadingSpinner';
 import NotFound from "../../pages/NotFound/NotFound";
 import {
   Navbar,
   Form,
+  FormGroup,
   Button,
   FormControl,
   Row,
@@ -51,7 +53,8 @@ class Search extends Component {
       result: response.Search
     });
 
-  submitHandler = () => {
+  submitHandler = (e) => {
+    e.preventDefault();
     this.setState({loader:true})
 
     this.movieList(this.state.query);
@@ -61,17 +64,20 @@ class Search extends Component {
     return (
       <div>
         <Navbar bg="dark" className="justify-content-center" sticky="top">
-          <Form inline className="sm-resize">
+          <Form inline className="sm-resize"  onSubmit={this.submitHandler}>
+          <FormGroup>
             <FormControl
               type="text"
               size="sm"
               onChange={this.changeHandler}
               className="mr-sm-2"
               placeholder="Movie or show name"
+             
             />
-            <Button className="sm-resize btn-spacing" variant="secondary" size="sm" onClick={this.submitHandler}>
+            <Button className="sm-resize btn-spacing" variant="secondary" size="sm" type="submit">
               Search
             </Button>
+            </FormGroup>
           </Form>
         </Navbar>
      {this.state.loader ? (
@@ -95,11 +101,11 @@ class Search extends Component {
            
                <Card.Link>
              <Card.Title className="card-text">{res.Title}</Card.Title>
-             <Button variant="secondary">
-                 <Link to={`/${res.imdbID}`} className="btn-text">
+                 <LinkContainer to={`/${res.imdbID}`} className="btn-text" variant="secondary">
+                  <Button>
                  Show More
-                 </Link>
-                 </Button>
+                  </Button>
+                 </LinkContainer>
                </Card.Link>
             
            </Card.Body>

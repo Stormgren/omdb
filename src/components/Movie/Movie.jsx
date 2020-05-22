@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Navbar, Col, Container, Image, Button } from "react-bootstrap";
 import LoadingSpinner from '../../pages/LoadingSpinner/LoadingSpinner';
 import { Link } from "react-router-dom";
+import { LinkContainer } from 'react-router-bootstrap';
 import "./Movie.styles.css";
 
 class Movie extends Component {
@@ -25,7 +26,7 @@ class Movie extends Component {
       metascore: "",
       imdbrating: "",
       imbd: this.props.match.params,
-      loader: true
+      loader: false
     };
 
     console.log(this.state.imbd.id);
@@ -35,10 +36,6 @@ class Movie extends Component {
     
     this.movieDetails();
     // this.setState({loader: false})
-
-    setTimeout(() => { 
-      this.setState({loader: false})
-    },2000)
   }
 
   resultRender = response =>
@@ -78,11 +75,11 @@ class Movie extends Component {
     return (
       <>
        <Navbar bg="dark" sticky="top">
-          <Button variant="info">
-            <Link to="/" className="btn-text">
-              Search More
-            </Link>
+            <LinkContainer to="/" className="btn-text">
+          <Button variant="secondary">
+              Back to homepage
           </Button>
+            </LinkContainer>
         </Navbar>
       {this.state.loader ? (
        <LoadingSpinner/>
