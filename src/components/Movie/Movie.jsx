@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Navbar, Col, Container, Image, Button } from "react-bootstrap";
 import LoadingSpinner from '../../pages/LoadingSpinner/LoadingSpinner';
 import { Link } from "react-router-dom";
+import { LinkContainer } from 'react-router-bootstrap';
 import "./Movie.styles.css";
 
 class Movie extends Component {
@@ -25,7 +26,7 @@ class Movie extends Component {
       metascore: "",
       imdbrating: "",
       imbd: this.props.match.params,
-      loader: true
+      loader: false
     };
 
     console.log(this.state.imbd.id);
@@ -35,10 +36,6 @@ class Movie extends Component {
     
     this.movieDetails();
     // this.setState({loader: false})
-
-    setTimeout(() => { 
-      this.setState({loader: false})
-    },2000)
   }
 
   resultRender = response =>
@@ -77,27 +74,28 @@ class Movie extends Component {
   render() {
     return (
       <>
-       <Navbar bg="dark">
-          <Button variant="info">
-            <Link to="/" className="btn-text">
-              Search More
-            </Link>
+       <Navbar bg="dark" sticky="top">
+            <LinkContainer to="/" className="btn-text">
+          <Button variant="secondary">
+              Back to homepage
           </Button>
+            </LinkContainer>
         </Navbar>
       {this.state.loader ? (
        <LoadingSpinner/>
       ) : (
         <Container className="content">
           <Row className="row-content" bg="dark">
-            <Col sm={4} md={4}>
+            <Col sm={12} md={4}>
               <Image
                 src={this.state.img}
                 alt={this.state.Title}
-                className="img-content"
-                fluid
+                className="img-content mx-auto d-block"
+                thumbnail
+                
               />
             </Col>
-            <Col sm={8} md={8} className="text-content">
+            <Col md={8} className="text-content">
               <h1>{this.state.title}</h1>
               <p>
                 {this.state.genre}, {this.state.year} Runtime:{" "}

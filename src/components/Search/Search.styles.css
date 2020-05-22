@@ -1,8 +1,6 @@
 .card-size{
     margin-top: 1rem;
-    /* height: 26rem; */
-/* width: 18rem; */
-
+    max-width: 24rem;
 }
 
 .card-img{
@@ -10,6 +8,12 @@
     border-radius: 0;
 }
 
+.card-text{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
 .card-body{
     background: #212529;
     color: white;
@@ -41,5 +45,12 @@
     .card-size{
         max-width: 18rem;
         margin: 1rem auto 0;
+    }
+    .sm-resize{
+        width: 230px;
+    }
+
+    .btn-spacing{
+        margin-top: 3px;
     }
 }
