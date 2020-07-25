@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { LinkContainer } from 'react-router-bootstrap';
 import LoadingSpinner from '../../pages/LoadingSpinner/LoadingSpinner';
 import NotFound from "../../pages/NotFound/NotFound";

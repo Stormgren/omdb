@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Row, Navbar, Col, Container, Image, Button } from "react-bootstrap";
 import LoadingSpinner from '../../pages/LoadingSpinner/LoadingSpinner';
-import { Link } from "react-router-dom";
 import { LinkContainer } from 'react-router-bootstrap';
 import "./Movie.styles.css";
 
