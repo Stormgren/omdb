@@ -58,7 +58,7 @@ class Movie extends Component {
     });
 
   movieDetails = async () => {
-    const KEY = "9caa56dd";
+    const KEY = process.env.REACT_APP_KEY;
     let id = this.state.imbd.id;
 
     let details = await fetch(

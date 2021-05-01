@@ -35,7 +35,7 @@ class Search extends Component {
   };
 
   movieList = async query => {
-    const KEY = "9caa56dd";
+    const KEY =  process.env.REACT_APP_KEY;
     query = this.state.query;
     
     let result = await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${KEY}`)
